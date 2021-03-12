@@ -2,6 +2,7 @@ from department import department
 from product import Product
 from Clothing import Clothing
 from Weapon import Weapon
+from Electronic import Electronic
 
 class store:
     def __init__(self, name, departments):
@@ -20,7 +21,7 @@ class store:
 
         return output
         
-my_store = store("bobs emporium", [department("clothes", [Clothing("t-shirt", 100, "red")]), department("weapons", [Weapon("firearm", 300, "melee")]), department("electronics", []), department("kitchenware", [])])
+my_store = store("bobs emporium", [department("clothes", [Clothing("t-shirt", 100, "red")]), department("weapons", [Weapon("firearm", 300, "melee")]), department("electronics", [Electronic("radio", 25, 20)]), department("kitchenware", [])])
 
 choice = 0
 while choice != len(my_store.departments)+1:
