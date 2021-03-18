@@ -169,4 +169,8 @@ islands = [[0, 1, 0, 1, 0],
            [1, 0, 1, 0, 0],
            [1, 1, 0, 0, 0]]
 
+def island_counter
+
 print(island_counter(islands)) # returns 4
+
+# 1s are vertices, n/s/w/e are edges
