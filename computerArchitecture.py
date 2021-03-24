@@ -36,7 +36,7 @@ fetch decode execute
 PRINT_TOM = 0b01011010 # print "tom" to console
 PRINT_NUM = 0b10010000 # print a number stored in ram 1 byte ahead of instruction
 HALT    =   0b10110111 # halt the operation of our data driven machine
-STORE    =  0b00010001 # store a number from the ram 2 bytes ahead of instruction into a register denoted from 1 byte ahead of the instructionin ram
+STORE    =  0b00010001 # store a number from the ram 2 bytes ahead of instruction into a register denoted from 1 byte ahead of the instructionin ram (LDI)
 PRINT_REG = 0b01111101 # print a number at the index into registers provided by the number from current instruction +1 in ram 
 ADD     =   0b01101101 # adds the num stored at the register at the index from ram 1 byte away from the instruction
 
