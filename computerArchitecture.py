@@ -38,6 +38,7 @@ PRINT_NUM = 0b10010000 # print a number stored in ram 1 byte ahead of instructio
 HALT    =   0b10110111 # halt the operation of our data driven machine
 STORE    =  0b00010001 # store a number from the ram 2 bytes ahead of instruction into a register denoted from 1 byte ahead of the instructionin ram
 PRINT_REG = 0b01111101 # print a number at the index into registers provided by the number from current instruction +1 in ram 
+ADD     =   0b01101101 # adds the num stored at the register at the index from ram 1 byte away from the instruction
 
 #list for RAM
 ram = [
@@ -46,7 +47,21 @@ ram = [
     23,
     STORE,
     1,
-    123,
+    10,
+    STORE,
+    3,
+    20,
+    PRINT_REG,
+    1,
+    PRINT_REG,
+    3,
+    ADD,
+    1,
+    3,
+    PRINT_REG,
+    1,
+    PRINT_REG,
+    3,
     HALT
 ]
 
@@ -82,7 +97,22 @@ while True:
         reg_index = ram[pc+1]
         num = ram[pc+2]
         registers[reg_index] = num
-        pc += 3     
+        pc += 3  
+    # DECODE
+    elif instruction == PRINT_REG:
+        # EXECUTE
+        reg_index = ram[pc+1]
+        num = registers[reg_index]
+        print(num)
+        pc += 2   
+    # DECODE
+    elif instruction == ADD:
+        # EXECUTE
+        reg_index_A = ram[pc+1]
+        reg_index_B = ram[pc+2]
+
+        registers[reg_index_A] = registers[reg_index_A] + registers[reg_index_B]
+        pc += 3  
     # DECODE
     else:
         # EXECUTE
