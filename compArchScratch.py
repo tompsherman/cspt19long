@@ -37,7 +37,12 @@ file_name = sys.argv[1]
 try:
     with open(file_name) as f:
         for line in f:
-            print(line)
+            l = line.split('#')
+            sani_l = l[0].strip()
+            if sani_l == '':
+                continue
+            # print(l)
+            print(int(sani_l, 2))
 except FileNotFoundError: 
     print(f"{sys.argv[0]}: {sys.argv[1]} not found")
     sys.exit(2)
